@@ -1,0 +1,49 @@
+1. Acoplamiento e Inyección de Dependencias
+Explica qué es la Inversión de Control (IoC) y la Inyección de Dependencias (DI) en el contexto de Spring Boot.
+¿Cómo contribuyen estos mecanismos a mantener un bajo acoplamiento en el diseño de clases?
+RTA:
+Inversion de control es un principio de diseño en el que el control de la creacion y gestion de los objetos
+no lo tiene el programador directamente, sino el contenedor de Spring, osea que spring es el que se encarga de
+crear los objetos.
+
+Inyeccion de dependencias es el mecanismo mediante el cual spring inyecta automaticamente las dependencias que
+una clase necesita, en lugar de que la clase las cree por si misma.
+
+
+2. Ramas Arquitectónicas
+Tomando en cuenta las diferentes ramas de decisión arquitectónica, explica la diferencia fundamental entre la
+Arquitectura Interna y la Arquitectura de Despliegue. Proporciona un ejemplo de una decisión técnica que le
+corresponda a cada una.
+Arquitectura Interna: Se refiere a como esta organizado el software internamente, o en otras palabras,
+vendria a ser el como se estructuran las clases, capas y componentes dentro de la aplicacion.
+Ejemplo: Usar una arquitectura en capas como la de controller, service, repository en una aplicacion.
+
+Arquitectura de Despliegue: Se refiere a como y donde se ejecuta el sistema, osea, la infraestructura donde se
+despliega la aplicacion.
+Ejemplo: Desplegar la aplicación en Docker.
+
+
+3. Flujo de Peticiones y Capas
+Describe el flujo completo de una petición HTTP en una aplicación Spring Boot. En tu respuesta, detalla la
+responsabilidad específica de las cinco capas o componentes principales involucrados:
+RTA:
+Flujo:
+El cliente envia una peticiin HTTP. La peticion llega al controller. El controller llama al service.
+El service usa el repository para interactuar con la base de datos. El repository utiliza JPA para
+convertir objetos en consultas SQL. La base de datos responde. La informacion regresa al service. El service
+puede convertir los datos a DTO. El Controller devuelve la respuesta al cliente.
+
+● Controller: Se encarga de recibir las peticiones HTTP del cliente.
+● Service: Se encarga de la logica.
+● Repository: Se encarga de transformar objetos a sql mediante el JPA, esto para no tener que usar directamente sql.
+● Entity: Se encarga de las tablas para la bases de datos.
+● DTO: Data Transfer Object hace referencia a objetos que permiten la transferencia de informacion entre capas, esto
+con el fin de proteger los datos sensibles.
+
+
+4. Principios SOLID
+Basado en los principios SOLID, explica en qué consiste el Principio de Responsabilidad Única (SRP). Proporciona
+un ejemplo claro de una implementación incorrecta de este principio y explica cómo la corregirías:
+RTA:
+El Principio de Responsabilidad Unica consiste en que una clase debe tener una sola responsabilidad o una sola
+razón para cambiar. Esto significa que cada clase debe encargarse solo de una tarea específica dentro del sistema.
