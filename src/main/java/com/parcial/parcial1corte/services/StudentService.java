@@ -15,7 +15,7 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     //Create
-    public StudentRequestDTO saveStudent(StudentRequestDTO requestDTO) {
+    public StudentResponseDTO saveStudent(StudentRequestDTO requestDTO) {
         StudentEntity studentToSave = StudentEntity.builder()
                 .name(requestDTO.getName())
                 .email(requestDTO.getEmail())
@@ -68,6 +68,5 @@ public class StudentService {
                 .program(entity.getProgram())
                 .build();
     }
-
 
 }
